@@ -29,8 +29,8 @@ public class LoginInterceptor implements HandlerInterceptor {
 		if (currentUrl.equals("/") || currentUrl.startsWith("/login") || currentUrl.startsWith("/error")) {
 			return true;
 		}
-		
-		LOG.info(currentUrl);
+
+		LOG.debug(currentUrl);
 
 		HttpSession session = request.getSession();
 		Long loginTime = (Long) session.getAttribute("loginTime");
