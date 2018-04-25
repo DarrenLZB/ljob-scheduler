@@ -20,11 +20,17 @@ public class RedisConfig {
 	@Value("${redis.password}")
 	private String redisPassword = null;
 
+	@Value("${redis.max.total}")
+	private Integer redisMaxTotal = null;
+
+	@Value("${redis.max.idle}")
+	private Integer redisMaxIdle = null;
+
 	@Bean(name = "jedisPool")
 	public JedisPool jedisPool() {
 		JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
-		jedisPoolConfig.setMaxTotal(50);
-		jedisPoolConfig.setMaxIdle(5);
+		jedisPoolConfig.setMaxTotal(redisMaxTotal);
+		jedisPoolConfig.setMaxIdle(redisMaxIdle);
 		jedisPoolConfig.setTestOnBorrow(true);
 		jedisPoolConfig.setTestWhileIdle(true);
 
