@@ -1,0 +1,235 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form,
+	fieldset, input, textarea, p, blockquote, th, td {
+	padding: 0;
+	margin: 0;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+fieldset, img {
+	border: 0;
+}
+
+address, caption, cite, code, dfn, em, strong, th, var {
+	font-weight: normal;
+	font-style: normal;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+caption, th {
+	text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+	font-size: 100%;
+}
+
+q:before, q:after {
+	content: ”;
+}
+
+abbr, acronym {
+	border: 0;
+}
+
+.line5 {
+	display: block;
+	height: 5px;
+	line-height: 5px;
+	clear: both;
+}
+
+.line10 {
+	display: block;
+	height: 10px;
+	line-height: 10px;
+	clear: both;
+}
+
+.line15 {
+	display: block;
+	height: 15px;
+	line-height: 15px;
+	clear: both;
+}
+
+.line20 {
+	display: block;
+	height: 20px;
+	line-height: 20px;
+	clear: both;
+}
+
+.form-control {
+	display: block;
+	width: 100%;
+	height: 40px;
+	padding: 5px 10px;
+	font-size: 14px;
+	line-height: 1.428571429;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	-webkit-transition: border-color ease-in-out .15s, box-shadow
+		ease-in-out .15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.form-control:focus {
+	border-color: #66afe9;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px
+		rgba(102, 175, 233, .6);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px
+		rgba(102, 175, 233, .6);
+}
+
+.form-control:-moz-placeholder {
+	color: #999;
+}
+
+.form-control::-moz-placeholder {
+	color: #999;
+	opacity: 1;
+}
+
+.form-control:-ms-input-placeholder {
+	color: #999;
+}
+
+.form-control::-webkit-input-placeholder {
+	color: #999;
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control
+	{
+	background-color: #FFF;
+	opacity: 1;
+}
+
+.btn {
+	display: inline-block;
+	padding: 6px 10px;
+	margin-bottom: 0;
+	width: 80px;
+	margin-right: 5px;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.428571429;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 2px;
+}
+
+.btn:focus {
+	outline: thin dotted;
+	outline: 5px auto -webkit-focus-ring-color;
+	outline-offset: -2px;
+}
+
+.btn:hover, .btn:focus {
+	color: #333;
+	text-decoration: none;
+}
+
+.btn:active, .btn.active {
+	background-image: none;
+	outline: 0;
+	-webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+	box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+	pointer-events: none;
+	cursor: not-allowed;
+	filter: alpha(opacity = 65);
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	opacity: .65;
+}
+
+.btn-default {
+	color: #333;
+	background-color: #fff;
+	border-color: #ccc;
+	background: url(../images/btn_d01.jpg);
+}
+
+.Wdate {
+	width: 130px;
+	display: inline;
+}
+
+.Wdatedate {
+	background: url(../images/dataright.png) no-repeat right;
+}
+
+.Wdate::-ms-clear {
+	display: none;
+}
+
+.WdateFmtErr {
+	font-weight: bold;
+	color: red;
+}
+/*<!--表格样式-->*/
+table.imagetable {
+	/*  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 12px/1.5 tahoma,arial,'Hiragino Sans GB',\5b8b\4f53,sans-serif;*/
+	font-size: 14px;
+	color: #333333;
+	border-width: 1px;
+	border-right: 1px #ccc solid;
+	border-bottom: 1px #ccc solid;
+	border-color: #cecece;
+	border-collapse: collapse;
+	width: 1178px;
+}
+
+table.imagetable tr:hover {
+	border-width: 1px;
+	border-color: #a2a2a2;
+	border-collapse: collapse;
+	background: #f3f3f3;
+	width: 978px;
+}
+
+table.imagetable tr td {
+	color: #2d2d2d;
+	word-break: break-all;
+	padding: 8px;
+	background: #f1f1f1 url(../images/cell-grey2.png);
+}
+
+table.imagetable tr:hover td {
+	color: #2d2d2d;
+	background: #f1f1f1 url(../images/cell-grey.png);
+}
+
+table.imagetable th {
+	background: #f1f1f1;
+	background: #f1f1f1 url(../images/cell-grey.png);
+	border-width: 1px;
+	padding: 20px 10px;
+	text-align: center;
+}

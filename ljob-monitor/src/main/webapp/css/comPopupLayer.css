@@ -1,0 +1,97 @@
+/** marterial_handout_store_follower.jsp */
+.theshop{padding-left: 20px;}
+#RadioGroup2_Div{overflow: hidden;height: 250px;overflow-y: auto;}
+ul.theshop li{width:33%; float:left;list-style-type:none;height: 34px;overflow: hidden;padding: 14px 0px;}
+th {font-weight: bold;font-size: 15px;text-align: center;}
+td{text-align: center;}
+
+#tabbox{ width:98%; overflow:hidden; margin:0 auto;}
+.tab_con{ display:none;}
+.tabs{height: 32px;border-bottom:1px solid #999;border-left: 1px solid #999;width: 100%;margin-bottom: 0px;}
+.tabs li{height:31px;line-height:31px;float:left;border:1px solid #999;border-left:none;border-bottom:none;margin-bottom: -1px;background: #fff;overflow: hidden;position: relative;padding: 0 30px;}
+.tabs li:hover {background: #ccc;}    
+.tabs .thistab,.tabs .thistab:hover{background: #f1f1f1;border-bottom: 1px solid #fff;}
+.tab_con {font-size: 14px; line-height:175%;}
+.tab_conbox{border:1px solid #999;border-top:none;min-height:340px;}
+.minheight{min-height:200px;}
+.bottomLayer{color: red;height: 35px;line-height: 35px;margin: 0 auto;width: 98%;}
+#tab4 .minheight h4{border-bottom: 1px solid #999;border-top: 1px solid #999;margin-bottom: 10px;padding-bottom: 5px;padding-left: 20px;background: #f0f0f0;
+padding-top: 7px;font-size: 14px;font-weight: bold;}
+#tab4 .minheight h4:first-child{border-top:none;}
+#tab4 .minheight ul{margin-bottom: 20px;overflow: hidden;}
+
+/** marterial_multi_list.jsp */
+.xubox_main { border: 0px;}
+#previewMaterial .previewOpen ul{width: 300px;border: 1px solid #ddd; display:none;background:#fff;height: 140px;overflow-x: auto;position: absolute;z-index: 9999;left: 110px}
+#previewMaterial .previewOpen span{background: #ddd;padding: 5px 10px;}
+#previewMaterial .previewOpen ul li{line-height: 30px;}
+#previewMaterial .previewOpen ul li:hover{background:#ccc;cursor: pointer;}
+.closeNameText{cursor: pointer;color:red;}
+
+.previewOpen ul{width: 200px;border: 1px solid #ddd; display:none;background:#fff;height: 240px;overflow-x: auto;position: absolute;z-index: 9999;left: 748px}
+.previewOpen span{background: #ddd;padding: 5px 10px;}
+.previewOpen ul li{line-height: 30px;}
+.previewOpen ul li:hover{background:#ccc;cursor: pointer;}
+
+/** layer 修改给个人信息*/
+.sendFollowersLayer, .sendAreasLayer{margin: 20px 10px;  display: none;}
+.sendFollowersLayer.row{ width: 650px; }
+.sendAreasLayer.row{ width: 720px; } 
+.sendAreasLayer.row h4, .sendFollowersLayer.row h4{border-bottom: 1px solid #d6d6d6;padding-bottom: 5px;padding-left: 20px;margin-bottom: 20px;}
+.sendAreasLayer > p, .sendFollowersLayer > p{text-align:center;}
+.sendAreasLayer > p > button, .sendFollowersLayer > p > button{margin-top: 10px;padding: 6px 25px;font-weight: bold;}
+.overflowy_scroll{overflow: hidden;overflow-y: scroll;height: 310px;}
+
+/** layer 公众号添加*/
+#addPublicRoadLayer.sendFollowersLayer.row,#editPublicRoadLayer.sendFollowersLayer.row{ width: 820px; margin: 20px 10px 10px;  display: none;}
+
+
+/** 弹出层公用的 */
+.sendFollowersLayer.row h4{border-bottom: 1px solid #d6d6d6;padding-bottom: 5px;padding-left: 20px;margin-bottom: 20px;}
+.sendFollowersLayer ul{display: inline-block; width: 100%;}
+.sendFollowersLayer ul li > p{text-align:left;}
+.sendFollowersLayer .sendMaterial .openwinds390 ul li > p > span{ width: 100px; display:inline-block;text-align: right;}
+.sendFollowersLayer .sendMaterial .openwinds390 ul li{float: left; list-style: none; width:380px;}
+.sendFollowersLayer .sendMaterial .openwinds390 input,.sendFollowersLayer .sendMaterial .openwinds390 select{display:inline; width:250px; margin-left:9px;}
+
+
+/** shop_add.jsp  shop_edit.js */
+#preview-pane .preview-container {width: 350px;height: 212px;overflow: hidden;}
+.img-responsive{height: 212px;width: 350px;}
+.tip{color: #8d8d8d;font-size: 14px;font-weight: normal;text-align: left;margin-top:10px;}
+.imgShow{width: 350px;height: 212px;overflow: hidden;border: 1px solid  #CCC;text-align: center;}
+
+/** organization_index.jsp layer 新增、修改机构 */
+#addOrgLayer.sendFollowersLayer.row,#editOrgLayer.sendFollowersLayer.row{margin: 20px 10px 10px;  display: none;width: 620px;}
+
+/** shop_data.jsp */
+.jinfoinle{width:210px; height: 198px; float:left; border-right:1px #CCCCCC solid; padding:17px}
+.tiabot{width: 355px; float:left; color:red; padding-left:75px;height:17px;line-height:17px}
+
+/** registerMember_list.jsp */
+p.thecolrod{color:#2663FD; font-size:14px;}
+.exampleLive{ position: relative;}
+.content,.salesContent{display: none; position: absolute;z-index: 9999;}
+
+/** integral_update.jsp */
+#orderTableList, #memberTableList{display: none;width: 820px;}
+#orderTableList h4, #memberTableList p{padding: 30px 0px 10px 0px;}
+#memberTableList p label{padding-left: 20px;}
+.btncaoz{padding: 20px 0px;text-align: center;}
+
+.div_boxle{float:left; width:410px; padding-top:25px;}
+#div_remark{width:410px; float:left;}
+#div_remark *{vertical-align: middle; display:inline-block;}
+#div_remark textarea{margin-left: 5px; padding:8px; width:365px;}
+span#div_remark textarea{width: 370px;}
+
+/** organization_index.jsp */
+#updateGroupLayer>h4{width: 430px;margin-bottom: 0px;}
+#updateGroupLayer .openwinds390>p{width:100%;display:block;text-align: left;}
+#updateGroupLayer .openwinds390>p>select {border: 1px #D1CECC solid;height: 44px;line-height: 44px;min-width: 140px;padding: 5px;background: #FFFFFF;color: #A3A2A2;}
+#updateGroupLayer .openwinds390>p>select.width_110 {min-width: 110px;max-width: 110px;overflow: hidden;}
+#updateGroupLayer .openwinds390>p>input{width: 241px;display: inline-block;}
+/**user.jsp*/
+#batchUpdatePasswdLayer>h4{width: 430px;margin-bottom: 0px;}
+#batchUpdatePasswdLayer .openwinds390>p{width:100%;display:block;text-align: left;}
+#batchUpdatePasswdLayer .openwinds390>p>input{width: 241px;display: inline-block;}
