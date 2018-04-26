@@ -53,7 +53,7 @@ import cn.ljob.schedule.LjobScheduler;
 import org.springframework.scheduling.quartz.SpringBeanJobFactory;
 
 /**
- * SpringLjobScheduler(Spring 5.0.+)
+ * SpringLjobScheduler(Spring 4+)
  * 
  * @author lin.zb
  */
