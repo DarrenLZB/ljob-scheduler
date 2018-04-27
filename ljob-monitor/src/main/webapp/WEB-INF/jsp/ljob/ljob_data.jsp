@@ -6,13 +6,14 @@ Current Server：${serverStatus }
 </div>
 <div class="line20"></div>
 <c:if test="${!empty jobList}">
-	<table class="imagetable" style="width: 1500px;">
-		<tr style="width: 1500px;">
+	<table class="imagetable" style="width: 1700px;">
+		<tr style="width: 1700px;">
 			<th style="width: 150px;">IP</th>
 			<th style="width: 150px;">Group Name</th>
 			<th style="width: 150px;">Job Name</th>
 			<th style="width: 100px;">Distributed</th>
 			<th style="width: 200px;">Job CronExpression</th>
+			<th style="width: 170px;">Startup Time</th>
 			<th style="width: 170px;">Job Heartbeat</th>
 			<th style="width: 140px;">Scheduling</th>
 			<th style="width: 140px;">Working</th>
@@ -31,6 +32,7 @@ Current Server：${serverStatus }
 				<td style="text-align: center;">${job.jobCronExpression}
 				    <br /><input type="button" onclick="toChangeCron('${job.groupName}', '${job.jobName}', '${job.ip}');" value="Change CronExpression" class="btn btn-default" style="width: 190px;">
 				</td>
+				<td style="text-align: center;">${job.startupTimeShow}</td>
 				<td style="text-align: center;">${job.sendTimeShow}</td>
 				<c:choose>
 				    <c:when test="${job.scheduling == 'true'}">
