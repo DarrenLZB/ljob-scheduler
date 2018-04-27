@@ -50,7 +50,7 @@
 	$(document).ready(function(){
 		if($(".gzheader").length>0){
 			//console.log($(".gzheader"));
-			window.location.href="<%=contextPath%>/login_controller/do_login";
+			window.location.href="<%=contextPath%>/login/do_login";
 		}
 		if(top!=self){
 			var url = window.location.href;
