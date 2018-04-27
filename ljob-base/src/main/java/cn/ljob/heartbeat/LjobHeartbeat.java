@@ -173,6 +173,10 @@ public class LjobHeartbeat implements Serializable {
 			return false;
 		}
 
+		if (null == ljobServerTime) {
+			return false;
+		}
+
 		Long sendTimeInteger = null;
 		Long currentTimeInteger = null;
 

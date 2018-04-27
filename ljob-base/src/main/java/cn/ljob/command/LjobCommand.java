@@ -109,6 +109,10 @@ public class LjobCommand implements Serializable {
 			return false;
 		}
 
+		if (null == ljobServerTime) {
+			return false;
+		}
+
 		Long requestTimeInteger = null;
 		Long currentTimeInteger = null;
 
