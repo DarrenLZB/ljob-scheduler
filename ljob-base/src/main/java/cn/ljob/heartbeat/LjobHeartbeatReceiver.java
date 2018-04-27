@@ -124,6 +124,7 @@ public abstract class LjobHeartbeatReceiver extends Thread {
 				oldljobHeartbeat.setSendTime(ljobHeartbeat.getSendTime());
 				oldljobHeartbeat.setScheduling(ljobHeartbeat.isScheduling());
 				oldljobHeartbeat.setWorking(ljobHeartbeat.isWorking());
+				oldljobHeartbeat.setCustomWorking(ljobHeartbeat.isCustomWorking());
 				oldljobHeartbeat.setJobCronExpression(ljobHeartbeat.getJobCronExpression());
 				oldljobHeartbeat.setDistributed(ljobHeartbeat.isDistributed());
 				oldljobHeartbeat.setSupportInstantRunReq(ljobHeartbeat.isSupportInstantRunReq());

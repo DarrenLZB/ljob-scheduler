@@ -44,6 +44,7 @@ public abstract class LjobHeartbeatSender extends Thread {
 				ljobHeartbeat.setJobCronExpression(ljob.getJobCronExpression());
 				ljobHeartbeat.setScheduling(ljob.isScheduling());
 				ljobHeartbeat.setWorking(ljob.isWorking());
+				ljobHeartbeat.setCustomWorking(ljob.isCustomWorking());
 				ljobHeartbeat.setSendTime(ljobTrigger.getLjobServerTime());
 				if (this.sendLjobHeartbeat(ljobHeartbeat)) {
 					try {

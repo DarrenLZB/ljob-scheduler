@@ -26,7 +26,9 @@ public abstract class LjobRunner {
 
 	private LjobSupporter ljobSupporter = null;
 
-	private boolean isRunning = false;
+	private boolean isWorking = false;
+
+	private boolean isCustomWorking = false;
 
 	private boolean isDistributed = false;
 
@@ -54,21 +56,38 @@ public abstract class LjobRunner {
 		this.ljobSupporter = ljobSupporter;
 	}
 
-	private synchronized boolean lockJob() {
-		if (isRunning) {
+	private synchronized boolean lockCustomJob() {
+		if (isCustomWorking) {
 			return false;
 		}
 
-		isRunning = true;
+		isCustomWorking = true;
+		return true;
+	}
+
+	private synchronized void releaseCustomJob() {
+		isCustomWorking = false;
+	}
+
+	public boolean isCustomWorking() {
+		return isCustomWorking;
+	}
+
+	private synchronized boolean lockJob() {
+		if (isWorking) {
+			return false;
+		}
+
+		isWorking = true;
 		return true;
 	}
 
 	private synchronized void releaseJob() {
-		isRunning = false;
+		isWorking = false;
 	}
 
 	public boolean isWorking() {
-		return isRunning;
+		return isWorking;
 	}
 
 	public void runJob() {
@@ -152,6 +171,11 @@ public abstract class LjobRunner {
 	}
 
 	public void runJob(JSONObject customParams) {
+		if (!lockCustomJob()) {
+			LOG.debug("lock custom job failed, custom job is running...");
+			return;
+		}
+
 		LOG.info("run custom job detail, customParams: " + customParams);
 		try {
 			// run custom job
@@ -160,6 +184,8 @@ public abstract class LjobRunner {
 		catch (Exception e) {
 			LOG.error("run custom job exception, customParams: " + customParams + ", exception: " + e.toString(), e);
 		}
+
+		releaseCustomJob();
 	}
 
 	/**

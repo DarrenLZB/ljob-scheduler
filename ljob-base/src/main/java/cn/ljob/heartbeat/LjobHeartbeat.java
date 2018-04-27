@@ -46,6 +46,16 @@ public class LjobHeartbeat implements Serializable {
 
 	private boolean isWorking = false;
 
+	private boolean isCustomWorking = false;
+
+	public boolean isCustomWorking() {
+		return isCustomWorking;
+	}
+
+	public void setCustomWorking(boolean isCustomWorking) {
+		this.isCustomWorking = isCustomWorking;
+	}
+
 	public String getJobName() {
 		return jobName;
 	}
@@ -185,8 +195,8 @@ public class LjobHeartbeat implements Serializable {
 	@Override
 	public String toString() {
 		return String.format(
-				"LjobHeartbeat [ip=%s, groupName=%s, jobName=%s, jobCronExpression=%s, isScheduling=%s, isDistributed=%s, isSupportInstantRunReq=%s, isSupportCloseJob=%s, isSupportCustomRunReq=%s, description=%s, sendTime=%s, isWorking=%s]",
+				"LjobHeartbeat [ip=%s, groupName=%s, jobName=%s, jobCronExpression=%s, isScheduling=%s, isDistributed=%s, isSupportInstantRunReq=%s, isSupportCloseJob=%s, isSupportCustomRunReq=%s, description=%s, sendTime=%s, isWorking=%s, isCustomWorking=%s]",
 				ip, groupName, jobName, jobCronExpression, isScheduling, isDistributed, isSupportInstantRunReq, isSupportCloseJob,
-				isSupportCustomRunReq, description, sendTime, isWorking);
+				isSupportCustomRunReq, description, sendTime, isWorking, isCustomWorking);
 	}
 }

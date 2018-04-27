@@ -130,6 +130,14 @@ public class Ljob {
 		return false;
 	}
 
+	public boolean isCustomWorking() {
+		if (null != jobRunner) {
+			return jobRunner.isCustomWorking();
+		}
+
+		return false;
+	}
+
 	public boolean isAutoSchedule() {
 		return isAutoSchedule;
 	}
