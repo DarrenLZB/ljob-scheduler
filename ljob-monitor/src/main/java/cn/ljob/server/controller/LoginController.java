@@ -54,7 +54,7 @@ public class LoginController {
 			return mav;
 		}
 
-		String loginToken = UUIDGenerator.generate();
+		String loginToken = "token" + UUIDGenerator.generate();
 		Jedis jedis = null;
 		try {
 			jedis = this.jedisPool.getResource();
@@ -85,11 +85,30 @@ public class LoginController {
 	@RequestMapping(value = "/login/login_out")
 	public ModelAndView logout(HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		String currentUser = (String) session.getAttribute("currentUser");
+		String loginToken = (String) session.getAttribute("loginToken");
+		if (null != loginToken) {
+			Jedis jedis = null;
+			try {
+				jedis = this.jedisPool.getResource();
+				jedis.del(loginToken);
+			}
+			catch (Exception e) {
+				LOG.error("delete login token exception：" + e.toString(), e);
+			}
+			finally {
+				if (null != jedis) {
+					try {
+						jedis.close();
+					}
+					catch (Exception e) {
+						LOG.error(e.toString(), e);
+					}
+				}
+			}
+		}
 
 		request.getSession(true);
 		session = request.getSession();
-		session.setAttribute("logoutUser", currentUser);
 		return new ModelAndView("common/login");
 	}
 }
