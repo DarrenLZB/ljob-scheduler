@@ -10,13 +10,14 @@ import cn.ljob.LjobRunner;
 import cn.ljob.annotation.LjobAnnotation;
 
 @Component
-@LjobAnnotation(cron = "${test.job.cron}", distributed = false, supportCloseJob = true, description = "test job")
+@LjobAnnotation(cron = "${test.job.cron}", distributed = false, supportCloseJob = true, supportCustomRunReq = true, supportInstantRunReq = true, description = "test job")
 public class TestJob extends LjobRunner {
 
 	private static final Logger LOG = LoggerFactory.getLogger(TestJob.class);
 
 	@Override
 	public void jobDetail(JSONObject customParams) {
+		LOG.info("custom job +++++++++++++++++, customParams: " + customParams.toJSONString());
 	}
 
 	@Override
