@@ -56,11 +56,33 @@ function sendChangeCron(){
 	var jobName = $("#jobName").val();
 	var ip = $("#ip").val();
 	var cron = $("#cron").val();
-	sendLjobCommand(groupName, jobName, ip, "2", cron);
+	sendLjobCommand(groupName, jobName, ip, "2", cron, null);
 	queryLjobs();
 }
 
-function sendLjobCommand(groupName, jobName, ip, command, cron){
+function toCustomRun(groupName, jobName, ip){
+	waitShow();
+	var params={};
+	params['ip']=ip;
+	params['groupName']=groupName;
+	params['jobName']=jobName;
+	params['currentUser']=$("#currentUser").val();
+	$.post("<%=contextPath%>/ljob/to_custom_run", params, function(data) {
+		$("#list_data").html(data);
+		waitHide();
+	});
+}
+
+function sendCustomRun(){
+	var groupName = $("#groupName").val();
+	var jobName = $("#jobName").val();
+	var ip = $("#ip").val();
+	var customParams = $("#customParams").val();
+	sendLjobCommand(groupName, jobName, ip, "4", null, customParams);
+	queryLjobs();
+}
+
+function sendLjobCommand(groupName, jobName, ip, command, cron, customParams){
 	waitShow();
 	var params={};
 	params['ip']=ip;
@@ -68,6 +90,7 @@ function sendLjobCommand(groupName, jobName, ip, command, cron){
 	params['jobName']=jobName;
 	params['command']=command;
 	params['cron']=cron;
+	params['customParams']=customParams;
 	params['currentUser']=$("#currentUser").val();
 	$.post("<%=contextPath%>/ljob/send_ljob_command", params, function(data) {
 		alert(data);

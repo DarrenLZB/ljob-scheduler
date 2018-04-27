@@ -36,13 +36,13 @@ Current Server：${serverStatus }
 				    <c:when test="${job.scheduling == 'true'}">
 				        <td style="text-align: center;color: #00DB00;">true
 				            <c:if test="${job.supportCloseJob == 'true'}">
-				            <br /><input type="button" onclick="sendLjobCommand('${job.groupName}', '${job.jobName}', '${job.ip}', '0', null);" value="Stop Schedule" class="btn btn-default" style="color: #EAC100; width: 130px;">
+				            <br /><input type="button" onclick="sendLjobCommand('${job.groupName}', '${job.jobName}', '${job.ip}', '0', null, null);" value="Stop Schedule" class="btn btn-default" style="color: #EAC100; width: 130px;">
 				            </c:if>
 				        </td>
 				    </c:when>
 				    <c:otherwise>
 				        <td style="text-align: center;color: #EAC100;">false
-				            <br /><input type="button" onclick="sendLjobCommand('${job.groupName}', '${job.jobName}', '${job.ip}', '1', null);" value="Start Schedule" class="btn btn-default" style="color: #00DB00; width: 130px;">
+				            <br /><input type="button" onclick="sendLjobCommand('${job.groupName}', '${job.jobName}', '${job.ip}', '1', null, null);" value="Start Schedule" class="btn btn-default" style="color: #00DB00; width: 130px;">
 				        </td>
 				    </c:otherwise>
 				</c:choose>
@@ -51,7 +51,11 @@ Current Server：${serverStatus }
 				        <td style="text-align: center;">true</td>
 				    </c:when>
 				    <c:otherwise>
-				        <td style="text-align: center;">false</td>
+				        <td style="text-align: center;">false
+				            <c:if test="${job.supportInstantRunReq == 'true'}">
+				            <br /><input type="button" onclick="sendLjobCommand('${job.groupName}', '${job.jobName}', '${job.ip}', '3', null, null);" value="Run Job" class="btn btn-default" style="color: #00DB00; width: 130px;">
+				            </c:if>
+				        </td>
 				    </c:otherwise>
 				</c:choose>
 				<c:choose>
@@ -59,7 +63,11 @@ Current Server：${serverStatus }
 				        <td style="text-align: center;">true</td>
 				    </c:when>
 				    <c:otherwise>
-				        <td style="text-align: center;">false</td>
+				        <td style="text-align: center;">false
+				            <c:if test="${job.supportCustomRunReq == 'true'}">
+				            <br /><input type="button" onclick="toCustomRun('${job.groupName}', '${job.jobName}', '${job.ip}');" value="Run Custom Job" class="btn btn-default" style="color: #00DB00; width: 130px;">
+				            </c:if>
+				        </td>
 				    </c:otherwise>
 				</c:choose>
 			</tr>

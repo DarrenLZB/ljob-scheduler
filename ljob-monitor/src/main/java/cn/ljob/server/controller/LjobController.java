@@ -111,10 +111,19 @@ public class LjobController {
 		mav.addObject("job", ljobHeartbeat);
 		return mav;
 	}
+	
+	@RequestMapping(value = "/to_custom_run")
+	public ModelAndView toCustomJob(HttpServletRequest request, String groupName, String jobName, String ip) {
+		ModelAndView mav = new ModelAndView("ljob/ljob_custom_run");
+		LjobHeartbeat ljobHeartbeat = LjobHeartbeatReceiver.getOnlineLjob(groupName, jobName, ip);
+		mav.addObject("job", ljobHeartbeat);
+		return mav;
+	}
 
 	@RequestMapping(value = "/send_ljob_command")
 	@ResponseBody
-	public String sentLjobCommand(HttpServletRequest request, String ip, String groupName, String jobName, String command, String cron) {
+	public String sentLjobCommand(HttpServletRequest request, String ip, String groupName, String jobName, String command, String cron,
+			String customParams) {
 		LOG.info(
 				"send ljob command, ip: " + ip + ", groupName: " + groupName + ", jobName: " + jobName + ", command: " + command + ", cron: " + cron);
 		LjobHeartbeat ljobHeartbeat = LjobHeartbeatReceiver.getOnlineLjob(groupName, jobName, ip);
@@ -141,6 +150,19 @@ public class LjobController {
 				}
 
 				ljobCommand.setCommand(LjobCommandConstant.CHANGE_SCHEDULE_CRON_COMMAND_PREFIX + cron.trim());
+			}
+			else if ("3".equals(command)) {
+				ljobCommand.setCommand(LjobCommandConstant.RUN_JOB_COMMAND);
+			}
+			else if ("4".equals(command)) {
+				if (null != customParams) {
+					customParams = customParams.trim();
+				}
+				else {
+					customParams = "";
+				}
+
+				ljobCommand.setCommand(LjobCommandConstant.RUN_CUSTOM_JOB_COMMAND_PREFIX + customParams);
 			}
 			else {
 				LOG.error("send ljob command failed, command not found.");
