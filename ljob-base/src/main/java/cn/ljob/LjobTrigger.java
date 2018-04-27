@@ -212,6 +212,7 @@ public class LjobTrigger {
 			String ljobGroupName = null;
 			LjobRunner ljobRunner = null;
 			for (Ljob ljob : ljobList) {
+				ljob.setStartupTime(new Date().getTime());
 				ljobGroupName = ljob.getGroupName();
 				if (null != groupName && (null == ljobGroupName || "default".equals(ljobGroupName))) {
 					ljob.setGroupName(groupName);

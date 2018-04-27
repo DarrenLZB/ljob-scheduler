@@ -34,6 +34,8 @@ public class Ljob {
 
 	private boolean isAutoSchedule = true;
 
+	private Long startupTime = null;
+
 	public String getJobName() {
 		return jobName;
 	}
@@ -146,11 +148,19 @@ public class Ljob {
 		this.isAutoSchedule = isAutoSchedule;
 	}
 
+	public Long getStartupTime() {
+		return startupTime;
+	}
+
+	public void setStartupTime(Long startupTime) {
+		this.startupTime = startupTime;
+	}
+
 	@Override
 	public String toString() {
 		return String.format(
-				"Ljob [jobName=%s, groupName=%s, jobRunner=%s, jobCronExpression=%s, isScheduling=%s, targetTrigger=%s, isDistributed=%s, isSupportInstantRunReq=%s, isSupportCloseJob=%s, isSupportCustomRunReq=%s, description=%s, isAutoSchedule=%s]",
+				"Ljob [jobName=%s, groupName=%s, jobRunner=%s, jobCronExpression=%s, isScheduling=%s, targetTrigger=%s, isDistributed=%s, isSupportInstantRunReq=%s, isSupportCloseJob=%s, isSupportCustomRunReq=%s, description=%s, isAutoSchedule=%s, startupTime=%s]",
 				jobName, groupName, jobRunner, jobCronExpression, isScheduling, targetTrigger, isDistributed, isSupportInstantRunReq,
-				isSupportCloseJob, isSupportCustomRunReq, description, isAutoSchedule);
+				isSupportCloseJob, isSupportCustomRunReq, description, isAutoSchedule, startupTime);
 	}
 }

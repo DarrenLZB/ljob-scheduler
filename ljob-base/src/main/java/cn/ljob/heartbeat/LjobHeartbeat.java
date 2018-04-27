@@ -177,6 +177,22 @@ public class LjobHeartbeat implements Serializable {
 			return null;
 		}
 	}
+	
+	public String getStartupTimeShow() {
+		Date sendTime = null;
+
+		if (null == dateTimeShowFormat) {
+			dateTimeShowFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		}
+
+		try {
+			sendTime = new Date(Long.valueOf(this.sendTime));
+			return dateTimeShowFormat.format(sendTime);
+		}
+		catch (Exception e) {
+			return null;
+		}
+	}
 
 	public boolean isValideHeartbeat(String ljobServerTime) {
 		if (null == this.sendTime) {
