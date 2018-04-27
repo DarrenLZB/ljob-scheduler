@@ -24,7 +24,7 @@
         </tr>
         <tr style="text-align: left;">
             <td style="text-align: left; width: 250px; font-weight: bold;">Custom Params</td>
-            <td style="text-align: left;"><input class="form-control Wdate" type="text" name="customParams" id="customParams" value="" style="width: 700px;"></td>
+            <td style="text-align: left;"><input class="form-control Wdate" type="text" name="customParams" id="customParams" placeholder="param1:value1,param2:value2" value="" style="width: 700px;"></td>
         </tr>
     </table>
 	<div class="line10"></div>

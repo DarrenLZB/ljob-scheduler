@@ -24,7 +24,7 @@
         </tr>
         <tr style="text-align: left;">
             <td style="text-align: left; width: 250px; font-weight: bold;">New CronExpression</td>
-            <td style="text-align: left;"><input class="form-control Wdate" type="text" name="cron" id="cron" value="" style="width: 700px;"></td>
+            <td style="text-align: left;"><input class="form-control Wdate" type="text" name="cron" id="cron" placeholder="0 * * * * ?" value="" style="width: 700px;"></td>
         </tr>
     </table>
 	<div class="line10"></div>
