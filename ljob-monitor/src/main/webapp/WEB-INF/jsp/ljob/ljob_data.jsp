@@ -16,6 +16,7 @@ Current Server：${serverStatus }
 			<th style="width: 170px;">Job Heartbeat</th>
 			<th style="width: 140px;">Scheduling</th>
 			<th style="width: 140px;">Working</th>
+			<th style="width: 140px;">Custom Working</th>
 		</tr>
 
 		<c:forEach var="job" items="${jobList }" varStatus="status">
@@ -47,6 +48,14 @@ Current Server：${serverStatus }
 				</c:choose>
 				<c:choose>
 				    <c:when test="${job.working == 'true'}">
+				        <td style="text-align: center;">true</td>
+				    </c:when>
+				    <c:otherwise>
+				        <td style="text-align: center;">false</td>
+				    </c:otherwise>
+				</c:choose>
+				<c:choose>
+				    <c:when test="${job.customWorking == 'true'}">
 				        <td style="text-align: center;">true</td>
 				    </c:when>
 				    <c:otherwise>
