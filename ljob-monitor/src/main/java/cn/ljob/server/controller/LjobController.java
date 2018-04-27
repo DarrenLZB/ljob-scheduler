@@ -131,7 +131,7 @@ public class LjobController {
 			LjobCommand ljobCommand = new LjobCommand();
 			ljobCommand.setRequestID(UUIDGenerator.generate());
 			ljobCommand.setRequestIP(getIpAddr(request));
-			ljobCommand.setRequestUser("ljob-server");
+			ljobCommand.setRequestUser("ljob-monitor");
 			ljobCommand.setRequestTime(ljobMonitor.getLjobServerTime());
 			ljobCommand.setGroupName(groupName);
 			ljobCommand.setJobName(jobName);
