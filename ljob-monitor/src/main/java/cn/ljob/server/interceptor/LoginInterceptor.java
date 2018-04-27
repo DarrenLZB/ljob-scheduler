@@ -1,6 +1,5 @@
 package cn.ljob.server.interceptor;
 
-import java.util.Date;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,9 +12,18 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.resource.ResourceHttpRequestHandler;
 
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
+
 public class LoginInterceptor implements HandlerInterceptor {
 
 	private static final Logger LOG = LoggerFactory.getLogger(LoginInterceptor.class);
+
+	private JedisPool jedisPool = null;
+
+	public LoginInterceptor(JedisPool jedisPool) {
+		this.jedisPool = jedisPool;
+	}
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -33,20 +41,40 @@ public class LoginInterceptor implements HandlerInterceptor {
 		LOG.debug(currentUrl);
 
 		HttpSession session = request.getSession();
+		String loginToken = (String) session.getAttribute("loginToken");
+		String currentUser = (String) session.getAttribute("currentUser");
 		Long loginTime = (Long) session.getAttribute("loginTime");
-		if (null == loginTime) {
+		if (null == loginToken || null == currentUser || null == loginTime) {
 			response.sendRedirect("/");
 			return false;
 		}
 
-		long currentTime = new Date().getTime();
-		if (currentTime - loginTime > 900000l) {
-			LOG.warn("login session timeout.");
-			response.sendRedirect("/");
-			return false;
+		Jedis jedis = null;
+		String cacheUser = null;
+		try {
+			jedis = this.jedisPool.getResource();
+			cacheUser = jedis.get(loginToken);
+			if (!currentUser.equals(cacheUser)) {
+				response.sendRedirect("/");
+				return false;
+			}
+
+			jedis.setex(loginToken, 900, currentUser);
+		}
+		catch (Exception e) {
+			LOG.error("validate login token exception：" + e.toString(), e);
+		}
+		finally {
+			if (null != jedis) {
+				try {
+					jedis.close();
+				}
+				catch (Exception e) {
+					LOG.error(e.toString(), e);
+				}
+			}
 		}
 
-		session.setAttribute("loginTime", currentTime);
 		return true;
 	}
 
