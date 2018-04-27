@@ -177,19 +177,19 @@ public class LjobHeartbeat implements Serializable {
 			return false;
 		}
 
-		Long sendTimeInteger = null;
-		Long currentTimeInteger = null;
+		Long sendTimeLong = null;
+		Long currentTimeLong = null;
 
 		try {
-			sendTimeInteger = Long.valueOf(this.sendTime);
-			currentTimeInteger = Long.valueOf(ljobServerTime);
+			sendTimeLong = Long.valueOf(this.sendTime);
+			currentTimeLong = Long.valueOf(ljobServerTime);
 		}
 		catch (Exception e) {
 			LOG.error(e.toString());
 			return false;
 		}
 
-		if (currentTimeInteger - sendTimeInteger > 120000l) {
+		if (currentTimeLong - sendTimeLong > 30000l) {
 			return false;
 		}
 

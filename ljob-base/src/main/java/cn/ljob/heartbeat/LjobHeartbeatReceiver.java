@@ -241,7 +241,7 @@ public abstract class LjobHeartbeatReceiver extends Thread {
 				}
 
 				try {
-					Thread.sleep(5000);
+					Thread.sleep(2000);
 				}
 				catch (InterruptedException e) {
 					LOG.error(e.toString(), e);

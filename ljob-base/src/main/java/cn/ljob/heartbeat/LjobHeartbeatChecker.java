@@ -87,7 +87,7 @@ public class LjobHeartbeatChecker extends Thread {
 			}
 
 			try {
-				Thread.sleep(10000);
+				Thread.sleep(5000);
 			}
 			catch (Exception e) {
 				LOG.error(e.toString(), e);

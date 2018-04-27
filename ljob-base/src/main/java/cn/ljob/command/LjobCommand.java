@@ -113,19 +113,19 @@ public class LjobCommand implements Serializable {
 			return false;
 		}
 
-		Long requestTimeInteger = null;
-		Long currentTimeInteger = null;
+		Long requestTimeLong = null;
+		Long currentTimeLong = null;
 
 		try {
-			requestTimeInteger = Long.valueOf(this.requestTime);
-			currentTimeInteger = Long.valueOf(ljobServerTime);
+			requestTimeLong = Long.valueOf(this.requestTime);
+			currentTimeLong = Long.valueOf(ljobServerTime);
 		}
 		catch (Exception e) {
 			LOG.error(e.toString());
 			return false;
 		}
 
-		if (currentTimeInteger - requestTimeInteger > 120000l) {
+		if (currentTimeLong - requestTimeLong > 30000l) {
 			return false;
 		}
 

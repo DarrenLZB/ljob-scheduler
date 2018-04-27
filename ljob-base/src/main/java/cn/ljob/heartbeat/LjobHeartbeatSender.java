@@ -48,7 +48,7 @@ public abstract class LjobHeartbeatSender extends Thread {
 				ljobHeartbeat.setSendTime(ljobTrigger.getLjobServerTime());
 				if (this.sendLjobHeartbeat(ljobHeartbeat)) {
 					try {
-						Thread.sleep(5000);
+						Thread.sleep(2000);
 					}
 					catch (InterruptedException e) {
 						LOG.error(e.toString(), e);
