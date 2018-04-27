@@ -172,7 +172,7 @@ public abstract class LjobRunner {
 
 	public void runJob(JSONObject customParams) {
 		if (!lockCustomJob()) {
-			LOG.debug("lock custom job failed, custom job is running...");
+			LOG.warn("lock custom job failed, custom job is running...");
 			return;
 		}
 

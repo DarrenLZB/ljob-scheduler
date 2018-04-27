@@ -3,6 +3,8 @@ package cn.ljob.command;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.alibaba.fastjson.JSONObject;
+
 import cn.ljob.Ljob;
 import cn.ljob.LjobTrigger;
 
@@ -135,6 +137,38 @@ public abstract class LjobCommandReceiver extends Thread {
 								}
 							}
 						}
+					}
+					else if (LjobCommandConstant.RUN_JOB_COMMAND.equals(command)) {
+						LOG.info("start run lob command, ljobCommand: " + ljobCommand.toString());
+						ljob.getJobRunner().runJob();
+						LOG.info("end run lob command, ljobCommand: " + ljobCommand.toString());
+					}
+					else if (command.startsWith(LjobCommandConstant.RUN_CUSTOM_JOB_COMMAND_PREFIX)) {
+						JSONObject customParams = new JSONObject();
+						String customJobStringParams = command.substring(LjobCommandConstant.RUN_CUSTOM_JOB_COMMAND_PREFIX.length());
+						if (null != customJobStringParams && !"".equals(customJobStringParams.trim())) {
+							String[] paramArray = customJobStringParams.trim().split(",");
+							String[] kv = null;
+							String key = null;
+							String value = null;
+							for (String param : paramArray) {
+								if (null != param && !"".equals(param.trim())) {
+									kv = param.trim().split(":");
+									if (null != kv && kv.length == 2) {
+										key = kv[0];
+										value = kv[1];
+										if (null != key && !"".equals(key.trim()) && null != value && !"".equals(value.trim())) {
+											customParams.put(key, value);
+										}
+									}
+								}
+							}
+						}
+
+						LOG.info("start run custom lob command, ljobCommand: " + ljobCommand.toString() + ", customParams: "
+								+ customParams.toJSONString());
+						ljob.getJobRunner().runJob(customParams);
+						LOG.info("end run custom lob command, ljobCommand: " + ljobCommand.toString());
 					}
 					else {
 						LOG.error("unknown ljob command: " + ljobCommand.toString());
